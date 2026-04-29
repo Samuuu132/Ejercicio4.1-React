@@ -1,16 +1,57 @@
-# React + Vite
+# 🕰️ WatchBlog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mini-blog de relojes construido con Vite + React + React Router v6.
 
-Currently, two official plugins are available:
+## Nivel: Mid (85 pts)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Cómo correr el proyecto
 
-## React Compiler
+```bash
+git clone https://github.com/Samuuu132/Ejercicio4.1-React.git
+cd Ejercicio4.1-React/watchblog
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Abre http://localhost:5173 en el navegador.
 
-## Expanding the ESLint configuration
+## Rutas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Home con relojes destacados |
+| `/items` | Listado completo con buscador |
+| `/items/:id` | Detalle de un reloj |
+| `*` | Página 404 |
+
+## Componente reutilizable: WatchCard
+
+Ubicación: `src/components/WatchCard.jsx`
+
+Tarjeta que muestra la información de un reloj y navega a su detalle al hacer clic.
+
+### Props
+
+| Prop | Tipo | Requerido | Descripción |
+|------|------|:---------:|-------------|
+| `watch` | `object` | ✅ | Objeto del reloj |
+| `watch.id` | `number` | ✅ | ID único del reloj |
+| `watch.brand` | `string` | ✅ | Marca del reloj |
+| `watch.model` | `string` | ✅ | Modelo del reloj |
+| `watch.type` | `string` | ✅ | Tipo de reloj |
+| `watch.image` | `string` | ✅ | URL de la imagen |
+
+### Ejemplo de uso
+
+```jsx
+import WatchCard from './components/WatchCard'
+
+<WatchCard watch={watch} />
+```
+
+## Requerimientos Mid completados
+
+- ✅ Página 404
+- ✅ Búsqueda en el listado
+- ✅ Botón aleatorio con useNavigate
+- ✅ Componente reutilizable WatchCard con props documentadas
